@@ -1,6 +1,14 @@
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+  FaPhoneAlt,
+  FaEnvelope
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-// ✅ Import the logo image from your folder structure
+// Logo
 import logoImg from "../assets/logo/logo.jpg";
 
 export default function Footer() {
@@ -10,80 +18,96 @@ export default function Footer() {
 
         {/* 1. BRAND COLUMN */}
         <div>
-          {/* ✅ LOGO IMAGE (Replacing text-based header) */}
           <div className="mb-6">
-            <img 
-              src={logoImg} 
-              alt="YouthBees Logo" 
-              className="h-14 w-auto object-contain" 
-            />
+            <Link to="/">
+              <img
+                src={logoImg}
+                alt="YouthBees Logo"
+                className="h-14 w-auto object-contain"
+              />
+            </Link>
           </div>
-          
+
           <p className="text-xs leading-relaxed text-slate-400">
-            YouthBees is a career-focused learning ecosystem connecting students 
+            YouthBees is a career-focused learning ecosystem connecting students
             to real-world skills and opportunities.
           </p>
 
-          {/* SOCIALS */}
+          {/* SOCIALS (external links stay <a>) */}
           <div className="flex gap-3 mt-6">
-            <SocialIcon icon={<FaFacebookF />} />
-            <SocialIcon icon={<FaLinkedinIn />} />
-            <SocialIcon icon={<FaInstagram />} />
-            <SocialIcon icon={<FaYoutube />} />
+            <SocialIcon href="https://facebook.com" icon={<FaFacebookF />} />
+            <SocialIcon href="https://linkedin.com" icon={<FaLinkedinIn />} />
+            <SocialIcon href="https://instagram.com" icon={<FaInstagram />} />
+            <SocialIcon href="https://youtube.com" icon={<FaYoutube />} />
           </div>
         </div>
 
-        {/* 2. COURSES COLUMN */}
+        {/* 2. COURSES */}
         <FooterColumn title="Courses">
-          <FooterLink label="Training Programs" link="/training-programs" />
-          <FooterLink label="Partner Programs" link="/partner-programs" />
+          <FooterLink label="Training Programs" to="/training-programs" />
+          <FooterLink label="Partner Programs" to="/partner-programs" />
         </FooterColumn>
 
-        {/* 3. SERVICES COLUMN */}
+        {/* 3. SERVICES */}
         <FooterColumn title="Services">
-          <FooterLink label="CV Writing" link="/services/cv-writing" />
-          <FooterLink label="LinkedIn Master" link="/services/linkedin" />
-          <FooterLink label="Portfolio Hub" link="/services/portfolio" />
-          <FooterLink label="Counselling" link="/services/counselling" />
+          <FooterLink label="CV Writing" to="/services/cv-writing" />
+          <FooterLink label="LinkedIn Master" to="/services/linkedin" />
+          <FooterLink label="Portfolio Hub" to="/services/portfolio" />
+          <FooterLink label="Counselling" to="/services/counselling" />
         </FooterColumn>
 
-        {/* 4. COMMUNITY COLUMN */}
+        {/* 4. COMMUNITY */}
         <FooterColumn title="Community">
-          <FooterLink label="Events" link="/events" />
-          <FooterLink label="Career" link="/career" />
-          <FooterLink label="Affiliate" link="/affiliate" />
-          <FooterLink label="Become a Mentor" link="/mentor/apply" />
+          <FooterLink label="Events" to="/events" />
+          <FooterLink label="Career" to="/career" />
+          <FooterLink label="Affiliate" to="/affiliate" />
+          <FooterLink label="Become a Mentor" to="/mentor/apply" />
         </FooterColumn>
 
-        {/* 5. SUPPORT HUB COLUMN */}
+        {/* 5. SUPPORT HUB */}
         <div>
           <h4 className="text-sm font-bold tracking-wider text-white mb-5 uppercase">
             Support Hub
           </h4>
+
           <div className="space-y-4">
-            <div className="flex items-center gap-3 group cursor-pointer">
-              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center group-hover:bg-[#FF8C1A] transition-colors shrink-0">
-                <FaPhoneAlt className="text-[#FF8C1A] group-hover:text-white text-[10px]" />
+
+            {/* PHONE */}
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center">
+                <FaPhoneAlt className="text-[#FF8C1A] text-[10px]" />
               </div>
-              <div className="flex flex-col">
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter">Hotline</span>
-                <a href="tel:+8801XXXXXXXXX" className="text-xs font-bold text-slate-300 hover:text-[#FF8C1A] transition-colors">
+              <div>
+                <span className="text-[10px] text-slate-500 font-bold uppercase">
+                  Hotline
+                </span>
+                <a
+                  href="tel:+8801XXXXXXXXX"
+                  className="block text-xs font-bold hover:text-[#FF8C1A]"
+                >
                   +880 1XXX-XXXXXX
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 group cursor-pointer">
-              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center group-hover:bg-[#FF8C1A] transition-colors shrink-0">
-                <FaEnvelope className="text-[#FF8C1A] group-hover:text-white text-[10px]" />
+            {/* EMAIL */}
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center">
+                <FaEnvelope className="text-[#FF8C1A] text-[10px]" />
               </div>
-              <div className="flex flex-col">
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-tighter">Email</span>
-                <a href="mailto:support@youthbees.com" className="text-xs font-bold text-slate-300 hover:text-[#FF8C1A] transition-colors break-all">
+              <div>
+                <span className="text-[10px] text-slate-500 font-bold uppercase">
+                  Email
+                </span>
+                <a
+                  href="mailto:support@youthbees.com"
+                  className="block text-xs font-bold break-all hover:text-[#FF8C1A]"
+                >
                   support@youthbees.com
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -102,7 +126,7 @@ export default function Footer() {
   );
 }
 
-/* ---------- Helpers ---------- */
+/* ---------- HELPERS ---------- */
 
 function FooterColumn({ title, children }) {
   return (
@@ -117,20 +141,25 @@ function FooterColumn({ title, children }) {
   );
 }
 
-function FooterLink({ label, link }) {
+function FooterLink({ label, to }) {
   return (
     <li>
-      <a href={link} className="hover:text-[#FF8C1A] transition-colors font-medium">
+      <Link
+        to={to}
+        className="hover:text-[#FF8C1A] transition-colors font-medium"
+      >
         {label}
-      </a>
+      </Link>
     </li>
   );
 }
 
-function SocialIcon({ icon }) {
+function SocialIcon({ href, icon }) {
   return (
     <a
-      href="#"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="w-9 h-9 flex items-center justify-center rounded-full
                  bg-slate-800 text-slate-300 hover:bg-[#FF8C1A]
                  hover:text-white transition shadow-lg"
