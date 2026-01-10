@@ -12,6 +12,8 @@ import TrainingPrograms from "./pages/TrainingPrograms";
 import PartnerPrograms from "./pages/PartnerPrograms";
 import ProgramDetails from "./pages/ProgramDetails";
 import Team from "./pages/Team";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 
 /* Services Pages */
@@ -43,6 +45,8 @@ export default function App() {
           <Route path="/career" element={<Career />} />
           <Route path="/affiliate" element={<Affiliate />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           {/* Courses & Training */}
           <Route path="/training-programs" element={<TrainingPrograms />} />

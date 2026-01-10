@@ -26,7 +26,6 @@ export default function Navbar() {
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-8">
-
           <NavLink to="/" className={baseLink}>Home</NavLink>
           <NavLink to="/about" className={baseLink}>About</NavLink>
 
@@ -35,7 +34,6 @@ export default function Navbar() {
             <button className={`${baseLink} flex items-center gap-1`}>
               Services <FaChevronDown className="text-xs" />
             </button>
-
             <div className="absolute top-10 left-0 w-72 bg-white rounded-2xl shadow-xl border border-orange-100
               opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
               <DropdownLink label="CV Writing Services" to="/services/cv-writing" />
@@ -50,7 +48,6 @@ export default function Navbar() {
             <button className={`${baseLink} flex items-center gap-1`}>
               Courses <FaChevronDown className="text-xs" />
             </button>
-
             <div className="absolute top-10 left-0 w-60 bg-white rounded-2xl shadow-xl border border-orange-100
               opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
               <DropdownLink label="Training Programs" to="/training-programs" />
@@ -63,10 +60,15 @@ export default function Navbar() {
           <NavLink to="/affiliate" className={baseLink}>Affiliate</NavLink>
         </nav>
 
-        {/* AUTH BUTTON */}
-        <button className="hidden md:block px-6 py-3 rounded-2xl bg-[#FF8C1A] text-white font-black hover:bg-[#FF5F1F] transition shadow-lg">
-          Login / Register
-        </button>
+        {/* AUTH BUTTONS (Desktop) */}
+        <div className="hidden md:flex items-center gap-4">
+          <Link to="/login" className="font-bold text-slate-700 hover:text-[#FF8C1A] transition">
+            Login
+          </Link>
+          <Link to="/register" className="px-6 py-3 rounded-2xl bg-[#FF8C1A] text-white font-black hover:bg-[#FF5F1F] transition shadow-lg">
+            Register
+          </Link>
+        </div>
 
         {/* MOBILE TOGGLE */}
         <button
@@ -89,9 +91,22 @@ export default function Navbar() {
           <MobileLink to="/career" setOpen={setOpen}>Career</MobileLink>
           <MobileLink to="/affiliate" setOpen={setOpen}>Affiliate</MobileLink>
 
-          <button className="w-full py-3 bg-[#FF8C1A] text-white rounded-xl font-black">
-            Login / Register
-          </button>
+          <div className="pt-4 space-y-3">
+            <Link 
+              to="/login" 
+              onClick={() => setOpen(false)}
+              className="block w-full py-3 text-center border-2 border-[#FF8C1A] text-[#FF8C1A] rounded-xl font-black"
+            >
+              Login
+            </Link>
+            <Link 
+              to="/register" 
+              onClick={() => setOpen(false)}
+              className="block w-full py-3 text-center bg-[#FF8C1A] text-white rounded-xl font-black"
+            >
+              Register
+            </Link>
+          </div>
         </div>
       )}
     </header>

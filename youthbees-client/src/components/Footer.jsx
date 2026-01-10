@@ -4,7 +4,8 @@ import {
   FaInstagram,
   FaYoutube,
   FaPhoneAlt,
-  FaEnvelope
+  FaEnvelope,
+  FaMapMarkerAlt // Added for the location link
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -33,11 +34,11 @@ export default function Footer() {
             to real-world skills and opportunities.
           </p>
 
-          {/* SOCIALS (external links stay <a>) */}
+          {/* SOCIALS - UPDATED WITH VERIFIED LINKS */}
           <div className="flex gap-3 mt-6">
-            <SocialIcon href="https://facebook.com" icon={<FaFacebookF />} />
-            <SocialIcon href="https://linkedin.com" icon={<FaLinkedinIn />} />
-            <SocialIcon href="https://instagram.com" icon={<FaInstagram />} />
+            <SocialIcon href="https://www.facebook.com/YouthBees" icon={<FaFacebookF />} />
+            <SocialIcon href="https://www.linkedin.com/company/youthbees/" icon={<FaLinkedinIn />} />
+            <SocialIcon href="https://www.instagram.com/youthbeesofficial?igsh=bWd3c3g3bjRmcjA4" icon={<FaInstagram />} />
             <SocialIcon href="https://youtube.com" icon={<FaYoutube />} />
           </div>
         </div>
@@ -64,7 +65,7 @@ export default function Footer() {
           <FooterLink label="Become a Mentor" to="/mentor/apply" />
         </FooterColumn>
 
-        {/* 5. SUPPORT HUB */}
+        {/* 5. SUPPORT HUB - UPDATED WITH VERIFIED CONTACTS */}
         <div>
           <h4 className="text-sm font-bold tracking-wider text-white mb-5 uppercase">
             Support Hub
@@ -72,38 +73,64 @@ export default function Footer() {
 
           <div className="space-y-4">
 
-            {/* PHONE */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center">
-                <FaPhoneAlt className="text-[#FF8C1A] text-[10px]" />
+            {/* PHONE - UPDATED */}
+            <div className="flex items-start gap-3 group">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 group-hover:bg-[#FF8C1A] transition-colors">
+                <FaPhoneAlt className="text-[#FF8C1A] group-hover:text-white text-[10px]" />
               </div>
               <div>
-                <span className="text-[10px] text-slate-500 font-bold uppercase">
+                <span className="text-[10px] text-slate-500 font-black uppercase tracking-tighter">
                   Hotline
                 </span>
                 <a
-                  href="tel:+8801XXXXXXXXX"
-                  className="block text-xs font-bold hover:text-[#FF8C1A]"
+                  href="tel:+8801797765669"
+                  className="block text-[11px] font-bold hover:text-[#FF8C1A] transition-colors"
                 >
-                  +880 1XXX-XXXXXX
+                  +880 1797-765669
+                </a>
+                <a
+                  href="tel:+8801614821598"
+                  className="block text-[11px] font-bold hover:text-[#FF8C1A] transition-colors"
+                >
+                  +880 1614-821598
                 </a>
               </div>
             </div>
 
-            {/* EMAIL */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center">
-                <FaEnvelope className="text-[#FF8C1A] text-[10px]" />
+            {/* EMAIL - UPDATED */}
+            <div className="flex items-center gap-3 group">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 group-hover:bg-[#FF8C1A] transition-colors">
+                <FaEnvelope className="text-[#FF8C1A] group-hover:text-white text-[10px]" />
               </div>
               <div>
-                <span className="text-[10px] text-slate-500 font-bold uppercase">
+                <span className="text-[10px] text-slate-500 font-black uppercase tracking-tighter">
                   Email
                 </span>
                 <a
-                  href="mailto:support@youthbees.com"
-                  className="block text-xs font-bold break-all hover:text-[#FF8C1A]"
+                  href="mailto:youthbees.bd@gmail.com"
+                  className="block text-[11px] font-bold break-all hover:text-[#FF8C1A] transition-colors"
                 >
-                  support@youthbees.com
+                  youthbees.bd@gmail.com
+                </a>
+              </div>
+            </div>
+
+            {/* LOCATION - NEW */}
+            <div className="flex items-center gap-3 group">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 group-hover:bg-[#FF8C1A] transition-colors">
+                <FaMapMarkerAlt className="text-[#FF8C1A] group-hover:text-white text-[10px]" />
+              </div>
+              <div>
+                <span className="text-[10px] text-slate-500 font-black uppercase tracking-tighter">
+                  Location
+                </span>
+                <a
+                  href="https://share.google/9UkVJkKSrXOct2P9B"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-[11px] font-bold hover:text-[#FF8C1A] transition-colors"
+                >
+                  Find us on Maps
                 </a>
               </div>
             </div>
