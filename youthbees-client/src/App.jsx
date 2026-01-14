@@ -28,6 +28,7 @@ import StudyAbroad from "./pages/services/StudyAbroad"; // IELTS & Study Abroad
 import CorporateTraining from "./pages/services/CorporateTraining"; // Enterprise
 import MarketingSupport from "./pages/services/MarketingSupport"; // Growth Marketing
 import InternshipPathway from "./pages/services/InternshipPathway"; // Launchpad Program
+import BlogDetails from "./pages/BlogDetails";
 
 export default function App() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/training-programs" element={<TrainingPrograms />} />
           <Route path="/partner-programs" element={<PartnerPrograms />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/blog/:id" element={<BlogDetails />} />
 
           {/* Service Routes mapped to your Navbar */}
           <Route path="/services/cv-writing" element={<CVWriting />} />
@@ -53,12 +55,12 @@ export default function App() {
           <Route path="/services/portfolio" element={<Portfolio />} />
           <Route path="/services/counselling" element={<Counselling />} />
           
-          <Route path="/services/academic-support" element={<ScholarlySuccess />} />
-          <Route path="/services/interview-mastery" element={<InterviewMastery />} />
+          <Route path="/services/academic-course" element={<ScholarlySuccess />} />
+          <Route path="/services/mock-interview" element={<InterviewMastery />} />
           <Route path="/services/study-abroad" element={<StudyAbroad />} />
           <Route path="/services/corporate-training" element={<CorporateTraining />} />
-          <Route path="/services/marketing" element={<MarketingSupport />} />
-          <Route path="/services/career-launchpad" element={<InternshipPathway />} />
+          <Route path="/services/marketing-support" element={<MarketingSupport />} />
+          <Route path="/services/internship-pathway" element={<InternshipPathway />} />
         </Routes>
       </main>
       <Footer />

@@ -1,56 +1,124 @@
 import { motion } from "framer-motion";
-import { FaUserTie, FaCheckCircle, FaVideo, FaLightbulb, FaArrowRight } from "react-icons/fa";
+import { 
+  FaUserTie, 
+  FaMicrophone, 
+  FaVideo, 
+  FaClipboardCheck, 
+  FaArrowRight, 
+  FaHistory,
+  FaCheckCircle
+} from "react-icons/fa";
+
+// Image import (Update path based on your assets)
+import interviewImg from "../../assets/about/workshop.jpg"; 
+
+const labFeatures = [
+  { 
+    title: "1-on-1 Simulation", 
+    desc: "45-minute intensive roleplay with HR experts from top MNCs.", 
+    icon: FaUserTie 
+  },
+  { 
+    title: "Recording & Playback", 
+    desc: "Review your body language and tone with high-definition session recordings.", 
+    icon: FaVideo 
+  },
+  { 
+    title: "Detailed Scorecard", 
+    desc: "Receive a metric-based report card covering 10+ professional parameters.", 
+    icon: FaClipboardCheck 
+  },
+  { 
+    title: "Behavioral Coaching", 
+    desc: "Master the STAR method for answering complex situational questions.", 
+    icon: FaMicrophone 
+  }
+];
 
 export default function InterviewMastery() {
   return (
-    <div className="min-h-screen bg-slate-900 pt-32 pb-20 px-6 text-white overflow-hidden relative">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[120px] -z-0" />
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div className="text-left">
-            <span className="text-orange-500 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Recruiter Ready</span>
-            <h1 className="text-6xl md:text-8xl font-black leading-[0.85] uppercase tracking-tighter mb-10">
-              Interview <br /> <span className="text-orange-500 italic uppercase font-outline-2">Mastery.</span>
-            </h1>
-            <div className="space-y-8">
-              <InterviewFeature icon={<FaVideo />} title="Simulated Mockups" desc="Industry-specific interviews with real-time corrective feedback." />
-              <InterviewFeature icon={<FaLightbulb />} title="Body Language" desc="Mastering non-verbal cues and psychological confidence." />
-              <InterviewFeature icon={<FaCheckCircle />} title="The STAR Method" desc="Structure your answers to maximize impact and recall." />
+    <div className="min-h-screen bg-[#FDF8F4] pt-32 pb-20 px-4 sm:px-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        
+        <div className="grid lg:grid-cols-12 gap-16 items-center mb-24">
+          {/* LEFT: CONTENT */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }} 
+            animate={{ opacity: 1, x: 0 }}
+            className="lg:col-span-7 text-left"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-100 shadow-sm mb-6">
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">Career Readiness Lab</span>
             </div>
-          </div>
-          
-          <div className="bg-white/5 border border-white/10 rounded-[4rem] p-12 backdrop-blur-xl">
-             <div className="mb-10">
-                <h3 className="text-3xl font-black uppercase mb-2">Book a Lab Session</h3>
-                <p className="text-slate-400 text-sm">Our mentors are founders and leads at top firms.</p>
-             </div>
-             <form className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <input type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-orange-500 transition-all text-sm" />
-                  <input type="text" placeholder="Desired Role" className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-orange-500 transition-all text-sm" />
+            
+            <h1 className="text-5xl md:text-7xl lg:text-[7.2rem] font-black text-[#0F172A] leading-[0.9] uppercase tracking-tighter mb-8">
+              Interview <br /> <span className="text-[#FF8C1A] italic">Mastery.</span>
+            </h1>
+            
+            <p className="text-base lg:text-lg text-slate-500 max-w-xl border-l-[3px] border-[#FF8C1A] pl-6 mb-10 font-medium leading-relaxed">
+              Don't practice until you get it right. Practice until you can't get it wrong. Our simulation lab bridges the gap between your skills and your dream job offer.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <button className="px-10 py-5 bg-[#0F172A] text-white font-black rounded-2xl shadow-xl hover:bg-[#FF8C1A] transition-all flex items-center justify-center gap-3 uppercase text-xs tracking-widest group">
+                Book a Session <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </motion.div>
+
+          {/* RIGHT: FLOATING IMAGE FRAME */}
+          <div className="lg:col-span-5 relative h-[400px] sm:h-[500px]">
+             <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }} 
+              animate={{ opacity: 1, scale: 1 }}
+              className="absolute inset-0 rounded-[4rem] overflow-hidden border-[12px] border-white shadow-2xl z-10"
+             >
+                <img src={interviewImg} alt="Interview Session" className="w-full h-full object-cover" />
+             </motion.div>
+             {/* Floating Score Badge */}
+             <motion.div 
+               animate={{ y: [0, -10, 0] }}
+               transition={{ repeat: Infinity, duration: 4 }}
+               className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-orange-100 z-20 hidden sm:block"
+             >
+                <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1 text-left">Success Rate</p>
+                <p className="text-3xl font-black text-[#0F172A] text-left">94.2%</p>
+                <div className="flex gap-1 mt-2 text-orange-500">
+                  <FaCheckCircle size={10}/><FaCheckCircle size={10}/><FaCheckCircle size={10}/><FaCheckCircle size={10}/><FaCheckCircle size={10}/>
                 </div>
-                <input type="email" placeholder="Email Address" className="w-full bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-orange-500 transition-all text-sm" />
-                <button className="w-full py-5 bg-orange-500 text-white font-black uppercase tracking-widest rounded-2xl hover:bg-white hover:text-slate-900 transition-all flex items-center justify-center gap-3">
-                  Check Availability <FaArrowRight />
-                </button>
-             </form>
+             </motion.div>
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
 
-function InterviewFeature({ icon, title, desc }) {
-  return (
-    <div className="flex gap-6 items-start">
-      <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-orange-500 text-xl border border-white/10 shrink-0">
-        {icon}
-      </div>
-      <div className="text-left">
-        <h4 className="text-xl font-black uppercase mb-1 tracking-tight">{title}</h4>
-        <p className="text-slate-400 text-sm font-medium leading-relaxed">{desc}</p>
+        {/* FEATURES GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {labFeatures.map((f, i) => (
+            <motion.div 
+              key={i}
+              whileHover={{ y: -5 }}
+              className="bg-white p-10 rounded-[2.5rem] border border-orange-50 shadow-sm text-left hover:shadow-xl transition-all duration-500"
+            >
+              <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-[#FF8C1A] mb-8">
+                <f.icon size={22} />
+              </div>
+              <h3 className="text-xl font-black text-[#0F172A] uppercase tracking-tighter mb-3">{f.title}</h3>
+              <p className="text-xs font-bold text-slate-400 leading-relaxed">{f.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* PRICING CTA */}
+        <div className="mt-20 p-8 sm:p-12 rounded-[3rem] bg-[#0F172A] text-white flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="text-left">
+            <h2 className="text-3xl font-black uppercase mb-2">Ready to ace your viva?</h2>
+            <p className="text-slate-400 font-medium">Get professional feedback starting from <span className="text-orange-500 font-black">৳1,500/session</span></p>
+          </div>
+          <button className="w-full md:w-auto px-12 py-6 bg-[#FF8C1A] text-white font-black rounded-2xl uppercase text-sm tracking-widest hover:bg-white hover:text-[#0F172A] transition-all shadow-2xl">
+            Start Preparation
+          </button>
+        </div>
+
       </div>
     </div>
   );

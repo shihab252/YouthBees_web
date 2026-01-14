@@ -29,39 +29,48 @@ export default function Navbar() {
           <NavLink to="/" className={baseLink}>Home</NavLink>
           <NavLink to="/about" className={baseLink}>About</NavLink>
 
-          {/* SERVICES (FLAT) */}
+          {/* SERVICES DROPDOWN */}
           <div className="relative group">
-            <button className={`${baseLink} flex items-center gap-1`}>
+            <button className={`${baseLink} flex items-center gap-1 py-4`}>
               Services <FaChevronDown className="text-xs" />
             </button>
 
-            <div className="absolute top-10 left-0 w-80 bg-white rounded-2xl shadow-xl
+            {/* Expanded width to 80 (w-80) to fit long text */}
+            <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-xl
               border border-orange-100 opacity-0 invisible
-              group-hover:opacity-100 group-hover:visible transition-all">
+              group-hover:opacity-100 group-hover:visible transition-all py-2">
 
+              {/* Fixed Core Services */}
               <DropdownLink label="CV Writing Services" to="/services/cv-writing" />
               <DropdownLink label="LinkedIn Services" to="/services/linkedin" />
               <DropdownLink label="Website & Portfolio Services" to="/services/portfolio" />
               <DropdownLink label="Counselling" to="/services/counselling" />
+              
+              <div className="border-t border-orange-50 my-1 mx-4"></div>
 
-              <DropdownLink label="Scholarly Success Suite" to="/services/academic-support" />
-              <DropdownLink label="Interview Mastery Lab" to="/services/interview-mastery" />
-              <DropdownLink label="Global Education Pathway" to="/services/study-abroad" />
-              <DropdownLink label="Enterprise Learning Solutions" to="/services/corporate-training" />
-              <DropdownLink label="Growth Marketing Solutions" to="/services/marketing" />
-              <DropdownLink label="Career Launchpad Program" to="/services/career-launchpad" />
+              {/* Newly Added Academic & Career Services */}
+              <DropdownLink label="Academic Course" to="/services/academic-course" />
+              <DropdownLink label="Mock Interview Support" to="/services/mock-interview" />
+              <DropdownLink label="Study Abroad Support" to="/services/study-abroad" />
+              
+              <div className="border-t border-orange-50 my-1 mx-4"></div>
+
+              {/* B2B / Professional Services */}
+              <DropdownLink label="Corporate Training for Companies" to="/services/corporate-training" />
+              <DropdownLink label="Marketing Support for Companies" to="/services/marketing-support" />
+              <DropdownLink label="Internship Pathway Program" to="/services/internship-pathway" />
             </div>
           </div>
 
           {/* COURSES */}
           <div className="relative group">
-            <button className={`${baseLink} flex items-center gap-1`}>
+            <button className={`${baseLink} flex items-center gap-1 py-4`}>
               Courses <FaChevronDown className="text-xs" />
             </button>
 
-            <div className="absolute top-10 left-0 w-60 bg-white rounded-2xl shadow-xl
+            <div className="absolute top-full left-0 w-60 bg-white rounded-2xl shadow-xl
               border border-orange-100 opacity-0 invisible
-              group-hover:opacity-100 group-hover:visible transition-all">
+              group-hover:opacity-100 group-hover:visible transition-all py-2">
 
               <DropdownLink label="Training Programs" to="/training-programs" />
               <DropdownLink label="Partner Programs" to="/partner-programs" />
@@ -74,7 +83,7 @@ export default function Navbar() {
           <NavLink to="/affiliate" className={baseLink}>Affiliate</NavLink>
         </nav>
 
-        {/* AUTH BUTTONS (Desktop) */}
+        {/* AUTH BUTTONS */}
         <div className="hidden md:flex items-center gap-4">
           <Link to="/login" className="font-bold text-slate-700 hover:text-[#FF8C1A] transition">
             Login
@@ -97,16 +106,29 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       <div
-        className={`md:hidden fixed inset-x-0 top-20 bg-white border-t border-orange-100
+        className={`md:hidden fixed inset-x-0 top-20 bg-white border-t border-orange-100 h-[calc(100vh-80px)] overflow-y-auto
         transition-all duration-300 ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         <div className="px-6 py-6 space-y-4 font-semibold text-slate-700">
-
           <MobileLink to="/" setOpen={setOpen}>Home</MobileLink>
           <MobileLink to="/about" setOpen={setOpen}>About</MobileLink>
-          <MobileLink to="/services" setOpen={setOpen}>Services</MobileLink>
+          
+          <div className="text-orange-500 text-xs uppercase tracking-widest font-black pt-2">Our Services</div>
+          <div className="pl-4 space-y-3 border-l-2 border-orange-100">
+            <MobileLink to="/services/cv-writing" setOpen={setOpen}>CV Writing Services</MobileLink>
+            <MobileLink to="/services/linkedin" setOpen={setOpen}>LinkedIn Services</MobileLink>
+            <MobileLink to="/services/portfolio" setOpen={setOpen}>Website & Portfolio</MobileLink>
+            <MobileLink to="/services/counselling" setOpen={setOpen}>Counselling</MobileLink>
+            <MobileLink to="/services/academic-course" setOpen={setOpen}>Academic Course</MobileLink>
+            <MobileLink to="/services/mock-interview" setOpen={setOpen}>Mock Interview Support</MobileLink>
+            <MobileLink to="/services/study-abroad" setOpen={setOpen}>Study Abroad Support</MobileLink>
+            <MobileLink to="/services/corporate-training" setOpen={setOpen}>Corporate Training</MobileLink>
+            <MobileLink to="/services/marketing-support" setOpen={setOpen}>Marketing Support</MobileLink>
+            <MobileLink to="/services/internship-pathway" setOpen={setOpen}>Internship Pathway</MobileLink>
+          </div>
+
           <MobileLink to="/training-programs" setOpen={setOpen}>Training Programs</MobileLink>
           <MobileLink to="/partner-programs" setOpen={setOpen}>Partner Programs</MobileLink>
           <MobileLink to="/events" setOpen={setOpen}>Events</MobileLink>
@@ -114,25 +136,9 @@ export default function Navbar() {
           <MobileLink to="/career" setOpen={setOpen}>Career</MobileLink>
           <MobileLink to="/affiliate" setOpen={setOpen}>Affiliate</MobileLink>
 
-          {/* MOBILE AUTH */}
           <div className="pt-4 space-y-3">
-            <Link
-              to="/login"
-              onClick={() => setOpen(false)}
-              className="block w-full py-3 text-center border-2 border-[#FF8C1A]
-              text-[#FF8C1A] rounded-xl font-black"
-            >
-              Login
-            </Link>
-
-            <Link
-              to="/register"
-              onClick={() => setOpen(false)}
-              className="block w-full py-3 text-center bg-[#FF8C1A]
-              text-white rounded-xl font-black"
-            >
-              Register
-            </Link>
+            <Link to="/login" onClick={() => setOpen(false)} className="block w-full py-3 text-center border-2 border-[#FF8C1A] text-[#FF8C1A] rounded-xl font-black">Login</Link>
+            <Link to="/register" onClick={() => setOpen(false)} className="block w-full py-3 text-center bg-[#FF8C1A] text-white rounded-xl font-black">Register</Link>
           </div>
         </div>
       </div>
@@ -146,8 +152,7 @@ function DropdownLink({ label, to }) {
   return (
     <Link
       to={to}
-      className="block px-6 py-3 text-sm hover:bg-[#FFF3E6]
-      hover:text-[#FF8C1A] transition"
+      className="block px-6 py-3 text-sm hover:bg-[#FFF3E6] hover:text-[#FF8C1A] transition rounded-lg mx-2"
     >
       {label}
     </Link>
@@ -156,11 +161,7 @@ function DropdownLink({ label, to }) {
 
 function MobileLink({ to, children, setOpen }) {
   return (
-    <Link
-      to={to}
-      onClick={() => setOpen(false)}
-      className="block py-2"
-    >
+    <Link to={to} onClick={() => setOpen(false)} className="block py-1">
       {children}
     </Link>
   );
