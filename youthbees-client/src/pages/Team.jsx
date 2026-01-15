@@ -16,7 +16,7 @@ import hrImg from "../assets/team/Junaidur Rahman Digonto-HR.jpg";
 import salesTeamLeadImg from "../assets/team/Abdul Hassan-Sales Team lead.jpg";
 import communityImg from "../assets/team/Joan Mickey Biswas-Community manager.jpg";
 import techImg from "../assets/team/Shihab uddin khan- Software Developer.jpg"; 
-
+import manager from "../assets/team/Annaya Roy-Manager.jpg";
 const allTeam = [
   {
     id: 1,
@@ -28,6 +28,17 @@ const allTeam = [
     linkedin: "https://www.linkedin.com/in/mahib-sadman/?originalSubdomain=bd",
     email: "mahibsadman20@gmail.com",
     img: founderImg
+  },
+  {
+    id: 8,
+    name: "Annaya Roy",
+    role: "Manager",
+    dept: "Management",
+    specialty: "Management & Operations",
+    quote: "Optimizing the hive's efficiency to ensure every student journey is seamless.",
+    linkedin: "https://www.linkedin.com/in/roy333/",
+    email: "royananya142333@gmail.com",
+    img: manager
   },
   
   {
