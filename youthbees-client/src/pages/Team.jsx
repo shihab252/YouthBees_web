@@ -29,17 +29,7 @@ const allTeam = [
     email: "mahibsadman20@gmail.com",
     img: founderImg
   },
-  {
-    id: 2,
-    name: "Shihab Uddin Khan",
-    role: "Full Stack Web developer",
-    dept: "Technology",
-    specialty: "Full-Stack Development",
-    quote: "Architecting robust digital solutions to empower our career ecosystem.",
-    linkedin: "https://www.linkedin.com/in/shihab-uddin-khan/",
-    email: "khanshihab252@gmail.com",
-    img: techImg 
-  },
+  
   {
     id: 3,
     name: "Sudipto Kumar Day",
@@ -94,7 +84,18 @@ const allTeam = [
     linkedin: "https://www.linkedin.com/in/joan-mickey-biswas-6ba8a52ab/",
     email: "jo.mickeyb@gmail.com",
     img: communityImg
-  }
+  },
+  {
+    id: 2,
+    name: "Shihab Uddin Khan",
+    role: "Full Stack Web developer",
+    dept: "Technology",
+    specialty: "Full-Stack Development",
+    quote: "Architecting robust digital solutions to empower our career ecosystem.",
+    linkedin: "https://www.linkedin.com/in/shihab-uddin-khan/",
+    email: "khanshihab252@gmail.com",
+    img: techImg 
+  },
 ];
 
 export default function Team() {
