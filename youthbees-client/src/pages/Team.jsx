@@ -43,7 +43,7 @@ const allTeam = [
   
   {
     id: 3,
-    name: "Sudipto Kumar Day",
+    name: "Sudipto Kumar Dey",
     role: "Marketing Team Lead",
     dept: "Marketing",
     specialty: "Data Analytics & Growth",
